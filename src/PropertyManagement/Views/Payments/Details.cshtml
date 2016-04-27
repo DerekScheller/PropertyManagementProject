@@ -1,0 +1,48 @@
+@model PropertyManagement.Models.Payment
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Payment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DateRecieved)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateRecieved)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DueDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DueDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentAmount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PaymentAmount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PropertyId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PropertyId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TenantId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TenantId)
+        </dd>
+    </dl>
+</div>
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.PaymentId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</p>

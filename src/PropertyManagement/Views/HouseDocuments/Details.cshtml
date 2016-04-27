@@ -1,0 +1,30 @@
+@model PropertyManagement.Models.HouseDocument
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>HouseDocument</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Lease)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Lease)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TenantId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TenantId)
+        </dd>
+    </dl>
+</div>
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.HouseDocumentId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</p>

@@ -1,0 +1,68 @@
+@model IEnumerable<PropertyManagement.Models.Property>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Street Address
+        </th>
+        <th>
+            Rent Amount
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RentAmount)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PropertyId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PropertyId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PropertyId">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
+<div id="map"></div>
+<script>
+    var map = new GMaps({
+        div: '#map',
+        lat: 43.038,
+        lng: -87.9065
+    });
+</script>
+@foreach (var item in Model)
+{
+    <script>
+        GMaps.geocode({
+            address: "@item.Address",
+            callback: function (results, status) {
+                if (status == 'OK') {
+                    var latlng = results[0].geometry.location;
+                    map.setCenter(latlng.lat(), latlng.lng());
+                    map.addMarker({
+                        lat: latlng.lat(),
+                        lng: latlng.lng(),
+                        title: "@item.Address",
+                        infoWindow:{
+                            content: '<p> Date Constructed: @item.DateConstructed <br> Number of Bedrooms: @item.NumOfBeds <br> Number of Bathrooms: @item.NumOfBaths <br> Utilities: <br> @if (item.HeatIncluded) {<p> Heat Included</p>} else {<p>Heat Not Included</p>} @if(item.WaterSewerIncluded) {<p>Water Sewer included</p>}else {<p>Water Sewer Not Included</p>} Description: <br> @item.PropertyDescription</p>'                                                 
+                        }
+                    });
+                }
+            }
+        });
+    </script>
+}

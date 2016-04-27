@@ -1,0 +1,38 @@
+@model IEnumerable<PropertyManagement.Models.HouseDocument>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Lease)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenantId)
+        </th>
+        <th></th>
+    </tr>
+    
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lease)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenantId)
+        </td>
+        <td>
+            <a asp-action="Edit" asp-route-id="@item.HouseDocumentId">Edit</a> |
+            <a asp-action="Details" asp-route-id="@item.HouseDocumentId">Details</a> |
+            <a asp-action="Delete" asp-route-id="@item.HouseDocumentId">Delete</a>
+        </td>
+    </tr>
+}
+</table>

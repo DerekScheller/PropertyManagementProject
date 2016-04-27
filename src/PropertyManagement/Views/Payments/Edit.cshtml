@@ -1,0 +1,66 @@
+@model PropertyManagement.Models.Payment
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<form asp-action="Edit">
+    <div class="form-horizontal">
+        <h4>Payment</h4>
+        <hr />
+        <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="PaymentId" />
+        <div class="form-group">
+            <label asp-for="DateRecieved" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="DateRecieved" class="form-control" />
+                <span asp-validation-for="DateRecieved" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="DueDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="DueDate" class="form-control" />
+                <span asp-validation-for="DueDate" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PaymentAmount" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PaymentAmount" class="form-control" />
+                <span asp-validation-for="PaymentAmount" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PropertyId" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PropertyId" class="form-control" />
+                <span asp-validation-for="PropertyId" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="TenantId" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="TenantId" class="form-control" />
+                <span asp-validation-for="TenantId" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

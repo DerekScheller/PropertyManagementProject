@@ -1,0 +1,80 @@
+@model IEnumerable<PropertyManagement.Models.Property>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateConstructed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HeatIncluded)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsOccupied)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumOfBaths)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumOfBeds)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PropertyDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RentAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WaterSewerIncluded)
+        </th>
+        <th></th>
+    </tr>
+    
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateConstructed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HeatIncluded)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsOccupied)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumOfBaths)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumOfBeds)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PropertyDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RentAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WaterSewerIncluded)
+        </td>
+        <td>
+            <a asp-action="Edit" asp-route-id="@item.PropertyId">Edit</a> |
+            <a asp-action="Details" asp-route-id="@item.PropertyId">Details</a> |
+            <a asp-action="Delete" asp-route-id="@item.PropertyId">Delete</a>
+        </td>
+    </tr>
+}
+</table>

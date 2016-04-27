@@ -1,0 +1,96 @@
+@model PropertyManagement.Models.Property
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <h4>Property</h4>
+        <hr />
+        <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Address" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="DateConstructed" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="DateConstructed" class="form-control" />
+                <span asp-validation-for="DateConstructed" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <input asp-for="HeatIncluded" />
+                    <label asp-for="HeatIncluded"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <input asp-for="IsOccupied" />
+                    <label asp-for="IsOccupied"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="NumOfBaths" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="NumOfBaths" class="form-control" />
+                <span asp-validation-for="NumOfBaths" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="NumOfBeds" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="NumOfBeds" class="form-control" />
+                <span asp-validation-for="NumOfBeds" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PropertyDescription" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PropertyDescription" class="form-control" />
+                <span asp-validation-for="PropertyDescription" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="RentAmount" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="RentAmount" class="form-control" />
+                <span asp-validation-for="RentAmount" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <input asp-for="WaterSewerIncluded" />
+                    <label asp-for="WaterSewerIncluded"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
